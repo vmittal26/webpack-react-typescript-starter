@@ -1,6 +1,5 @@
-.Hello{
+.App{
     background: purple;
-    user-select: none;
 
     &:hover{
         background: darken(purple,5%);
