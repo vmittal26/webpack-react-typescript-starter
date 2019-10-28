@@ -1,11 +1,6 @@
-@import '~bootstrap-scss/functions';
-@import '~bootstrap-scss/variables';
-@import '~bootstrap-scss/mixins';
-@import "~bootstrap-scss/utilities";
-
-
 .Hello{
     background: purple;
+    user-select: none;
 
     &:hover{
         background: darken(purple,5%);

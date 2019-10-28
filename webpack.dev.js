@@ -13,6 +13,14 @@ module.exports = merge(common, {
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
                     {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [require('autoprefixer')({
+                                'overrideBrowserslist': ['> 1%', 'last 2 versions']
+                            })],
+                        }
+                    },
+                    {
                         loader: 'sass-loader', options: {
                             sassOptions: {
                                 importer: globImporter()

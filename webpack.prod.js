@@ -15,10 +15,24 @@ module.exports = merge(common, {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader']
-            },
+                    { loader:  MiniCssExtractPlugin.loader },
+                    { loader: 'css-loader' },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [require('autoprefixer')({
+                                'overrideBrowserslist': ['> 1%', 'last 2 versions']
+                            })],
+                        }
+                    },
+                    {
+                        loader: 'sass-loader', options: {
+                            sassOptions: {
+                                importer: globImporter()
+                            }
+                        }
+                    }]
+                }
         ]
     },
     plugins: [new MiniCssExtractPlugin({
