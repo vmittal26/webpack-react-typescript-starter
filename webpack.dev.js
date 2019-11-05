@@ -4,11 +4,12 @@ const globImporter = require('node-sass-glob-importer');
 
 module.exports = merge(common, {
     mode: "development",
+  
     module: {
 
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
@@ -29,5 +30,12 @@ module.exports = merge(common, {
                     }]
             },
         ]
+    },
+    devtool:'cheap-module-eval-source-map',   
+    devServer: {
+        // contentBase: path.join(__dirname, 'dist'),
+        historyApiFallback: true,
+        port: 8081
     }
+    
 });
